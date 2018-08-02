@@ -3,7 +3,7 @@
 
 console.log('hey tien');
 
-setTimeout(function(){
+setTimeout(function(){ //this is also considered a callback function, which means after 3000 miliseconds, run this function and say 3 seconds have passed
     console.log('3 seconds have passed')
 }, 3000);
 //3 seconds have passed
