@@ -1,4 +1,6 @@
 //Used "node public/app.js" in terminal/ or "node app"
+//Lesson 1
+
 console.log('hey tien');
 
 setTimeout(function(){
@@ -24,6 +26,8 @@ var timer = setInterval(function (){
 
 
 
+//Lesson 2
+
 //NORMAL FUNCTION STATEMENT
 function sayHi(){
     console.log('hi');
@@ -48,3 +52,27 @@ function callFunction (fun){ //with the first "fun" - we can pass a function int
 
 callFunction(sayBye); //so the variable "sayBye" will be passed in the first "fun" function and then be called sayBye() like the function expression
 
+
+
+//Lesson 3 (Modules and require())
+
+var counter = require('./stuff');
+console.log(counter(['david', 'tien', 'borland']));
+//before we added var counter = require('./stuff'), the method "counter" in console.log does not available to app.js
+//the method "counter" in console.log (before added var counter) is only available in the module "stuff.js"
+//so that all the code: var counter = function(arr){return...}; (in module stuff.js) does not available to run outside of the module "stuff.js"
+
+//After we decided what part and function we want to be available outside "stuff.js" under module.exports = counter;
+//Then we can added var counter = require('./stuff')
+//Which means the variable counter will run the requirement code "var counter = function(arr){return...}; (in module stuff.js)" in app.js
+//Answer: There are 3 elements in this array
+
+
+
+
+//Lesson 4 (More variables to transfer from a module to another module)
+var stuff = require('./stuff'); //we "var stuff" because we will used all 3 module exports in the module "stuff.js"
+//stuff will be considered module.exports (including .counter, .adder, .pi)
+console.log(stuff.counter(['david', 'tien', 'borland'])); //There are 3 elements in this array
+console.log(stuff.adder(5,6)); //5+6=11
+console.log(stuff.adder(stuff.pi,5)); //3.142 + 5 = 8.142
