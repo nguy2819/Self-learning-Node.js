@@ -61,3 +61,25 @@ module.exports.counter = function(arr){return 'There are ' + arr.length +' eleme
 module.exports.adder = function(a, b){return `The sum of the 2 numbers is ${a+b}`;};
 module.exports.pi = 3.142;
 ```
+- The Node Event Emitter
+```
+var events = require('events');
+
+var myEmitter = new events.EventEmitter();
+
+myEmitter.on('someEvent', function(mssg){ 
+    console.log(mssg);
+});
+//This is a listener function. It will tell what events happen => to listen for.
+//When myEmitter emitted 'someEvent' happened, they will run the function message
+
+myEmitter.emit('someEvent', 'the event was emitted');
+//This is an emit function. 
+//We let people knows 'someEvent' happens, then the second argument will be the message (what message we want people to know).
+```
+
+```
+var util = require('util');
+util.inherits(myEmitter, events.EventEmitter);
+//means COPY
+```
