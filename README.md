@@ -1,14 +1,14 @@
 ### Learning Node.js through [The Net Ninja's tutorial](https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp)
 
 ![node JS](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/320px-Node.js_logo.svg.png)
-- Function Expression
+- [x] Function Expression
 ```
 var sayHi = function(){
 console.log('hi');
 };
 ```
 
-- callFunction
+- [x] callFunction
 ```
 function callFunction (fun){
 fun();
@@ -17,7 +17,7 @@ fun();
 callFunction(sayHi);
 ```
 
-- Modules and require()
+- [x] Modules and require()
 ** In app.js
 ```
 var stuff = require('./stuff');
@@ -61,7 +61,7 @@ module.exports.counter = function(arr){return 'There are ' + arr.length +' eleme
 module.exports.adder = function(a, b){return `The sum of the 2 numbers is ${a+b}`;};
 module.exports.pi = 3.142;
 ```
-- The Node Event Emitter
+- [x] The Node Event Emitter
 ```
 var events = require('events');
 
@@ -82,4 +82,19 @@ myEmitter.emit('someEvent', 'the event was emitted');
 var util = require('util');
 util.inherits(myEmitter, events.EventEmitter);
 //means COPY
+```
+- [x] Read and Write Files
+```
+var fs = require('fs');
+var readMe = fs.readFileSync('readMe.txt', 'utf8');
+console.log(readMe);
+fs.writeFileSync('writeMe.txt', readMe);
+```
+OR
+```
+fs.readFile('readMe.txt', 'utf8', function(err, data){
+    console.log(data); //this one they are checking to read data "Awesome, you read me." from readMe.txt
+    fs.writeFile('writeMeMore.txt', data); //we just created another "writeMemOre.txt" with the data from readMe.txt "Awesome, you read me."
+});
+//this is an asynchronous code (two or more objects or events-not existing or happening at the same time.)
 ```
