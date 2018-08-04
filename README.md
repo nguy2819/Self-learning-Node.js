@@ -86,6 +86,7 @@ util.inherits(myEmitter, events.EventEmitter);
 - [x] Read and Write Files
 ```
 var fs = require('fs');
+
 var readMe = fs.readFileSync('readMe.txt', 'utf8');
 console.log(readMe);
 fs.writeFileSync('writeMe.txt', readMe);
@@ -97,4 +98,33 @@ fs.readFile('readMe.txt', 'utf8', function(err, data){
     fs.writeFile('writeMeMore.txt', data); //we just created another "writeMemOre.txt" with the data from readMe.txt "Awesome, you read me."
 });
 //this is an asynchronous code (two or more objects or events-not existing or happening at the same time.)
+```
+- [x] Creating & Removing Directories
+```
+var fs = require('fs');
+
+//To delete/unlink a file
+fs.unlink('writeMeMore.txt');
+
+//To create a directory
+fs.mkdirSync('things'); //like directory public => they appear a directory things
+
+//To delete/remove a directory
+fs.rmdirSync('things'); //the directory "things" just created above is being removed
+```
+```
+fs.mkdir('private', function(){
+    fs.readFile('readMe.txt', 'utf8', function(err, data){
+        fs.writeFile('./private/writeMeInPrivate.txt', data);
+    });
+});
+//So what I did was make a directory, named "private", read the readMe.txt, and lastly write a file, named "writeMeInPrivate.txt" inside private directory, with the same data as the readMe.txt
+
+
+
+fs.unlink('./private/writeMeInPrivate.txt', function(){
+    fs.rmdir('private');
+});
+//so I unlink/delete the writeMeInPrivate.txt in private directory
+//Then I delete/remove the private directory
 ```
