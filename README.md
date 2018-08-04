@@ -130,8 +130,8 @@ fs.unlink('./private/writeMeInPrivate.txt', function(){
 ```
 
 - [x] Creating a server
-Client => request + request headers => Server
-Client <= response data + response headers <= Server
+- Client => request + request headers => Server
+- Client <= response data + response headers <= Server
 ```
 var http = require('http');
 
