@@ -128,3 +128,18 @@ fs.unlink('./private/writeMeInPrivate.txt', function(){
 //so I unlink/delete the writeMeInPrivate.txt in private directory
 //Then I delete/remove the private directory
 ```
+
+- [x] Creating a server
+Client => request + request headers => Server
+Client <= response data + response headers <= Server
+```
+var http = require('http');
+
+//Write response headers
+var server = http.createServer(function(req,res){
+    console.log('request was made: ' + req.url); //request was made: /heydavid/iloveyou from 127.0.0.1:3000/heydavid/iloveyou
+    res.writeHead(200, {'Content-Type': 'text/plain'}); //this is the way we write response header
+    res.end('Hi Tien') //end with the content of the response and send it out to the browser
+});
+server.listen(3000, '127.0.0.1'); //this will start the server and very important.
+```
