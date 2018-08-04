@@ -3,19 +3,19 @@
 
 var fs = require('fs');
 
-// //To delete/unlink a file
-// fs.unlink('writeMeMore.txt'); 
-// //I used to have readMe.txt, writeMe.txt, and writeMeMore.txt 
-// //this will delete the writeMeMore.txt after I run node public/createremovedirectories.js
-// //and the writeMeMore.txt is disappearred.
+//To delete/unlink a file
+fs.unlink('writeMeMore.txt'); 
+//I used to have readMe.txt, writeMe.txt, and writeMeMore.txt 
+//this will delete the writeMeMore.txt after I run node public/createremovedirectories.js
+//and the writeMeMore.txt is disappearred.
 
-// //To create a directory
-// fs.mkdirSync('things'); //like directory public => they appear a directory things
+//To create a directory
+fs.mkdirSync('things'); //like directory public => they appear a directory things
 
-// //To delete/remove a directory
-// fs.rmdirSync('things'); //the directory "things" just created above is being removed
+//To delete/remove a directory
+fs.rmdirSync('things'); //the directory "things" just created above is being removed
 
-// //The asynchronous function will block every codes after it
+//The asynchronous function will block every codes after it
 
 
 
